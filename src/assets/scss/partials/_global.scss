@@ -1,0 +1,54 @@
+ /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+/* Firefox */
+// input[type=number] {
+  //   -moz-appearance: textfield;
+// }
+
+*{box-sizing: border-box;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);line-height: initial !important;word-break: break-word;}
+*:before, *:after {box-sizing: border-box;}
+::-webkit-scrollbar {width: 4px;height: 4px;border: 1px solid #d5d5d5}
+::-webkit-scrollbar-track {border-radius: 12px;background: #deecff}
+::-webkit-scrollbar-thumb {border-radius: 18px;background: $harmonies_grey}
+
+ html, body {height: 100%;width: 100%;font-family: $TTNormsPro!important;}
+h1, h2, h3, h4, h5, h6, p {margin-top: 0 !important;margin-bottom: 0 !important;line-height: initial;}
+@media (prefers-reduced-motion: no-preference) {:root {scroll-behavior: smooth;}}
+input, button, select, optgroup, textarea {margin: 0;font-family: inherit;font-size: inherit;line-height: inherit;}
+button, select {text-transform: none;}
+[role=button] {cursor: pointer;}
+select {word-wrap: normal;}
+select:disabled {opacity: 1;}
+button,[type=button],[type=reset],[type=submit] {-webkit-appearance: button;}button:not(:disabled),[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled) {cursor: pointer;}
+textarea {resize: none;}
+img,svg {vertical-align: middle;}
+a {text-decoration: none;}
+.mat-drawer-container {background-color: #E5E5E5;color: rgba(0,0,0,.87);}
+
+// wrapper
+.wrapper-1190 {margin:0 auto;max-width: 1190px;width: 100%;padding: 0px 10px;}
+.wrapper-930 {margin:0 auto;max-width: 930px;width: 100%;padding: 0px 10px;}
+.wrapper-768 {margin:0 auto;max-width: 700px;width: 100%;padding: 0px 10px;}
+.wrapper-600 {margin:0 auto;max-width: 600px;width: 100%;padding: 0px 10px;}
+.wrapper-500 {margin:0 auto;max-width: 500px;width: 100%;padding: 0px 10px;}
+
+// SankBar css
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  background-color: #4BB543 !important;
+}
+.mat-body, .mat-body-2, .mat-typography .mat-body, .mat-typography .mat-body-2, .mat-typography,
+.mat-mdc-form-field-subscript-wrapper, .mat-mdc-form-field-bottom-align::before{
+  font-family: $Inter !important;
+}
+.sticky-box {
+  position: -webkit-sticky;
+  position: sticky !important;
+  top:1.5rem;
+}
+

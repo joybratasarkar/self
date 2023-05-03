@@ -1,0 +1,31 @@
+// for component width height
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+// for component same width height
+@mixin square($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin bordered($color, $width) {
+    border: $width solid $color;
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+}
+
+/* element position mixin */
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}

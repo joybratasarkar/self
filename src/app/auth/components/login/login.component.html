@@ -1,0 +1,74 @@
+<div class="first-screen">
+  <div fxLayout="row">
+      <div fxLayout="column" class="head-desc">
+          <div class="mb-2">
+              <a href="#" class="auth-back-btn bg-white-smoke line-height-8 p-2 border-radius-20 d-inline-block border-none">
+                  <img src="src/assets/images/icons/arow-right.svg" alt="back icon" width="20" height="20" />
+              </a>
+              
+          </div>
+          <p class="fs-30 line-height-38 fw-500 ptn mtn mb-5 color-primary-black">Employee Performance Tracking is Now
+              Super Easy!</p>
+      </div>
+  </div>
+
+  <form >
+      <div fxLayout="column">
+          <div class="mb-2">
+              <mat-label class="fs-14 fw-400 color-grey-abbey d-block">Email ID*</mat-label>
+              <mat-form-field class="w-100" appearance="outline">
+                  <input type="text" matInput placeholder="Enter email">
+                  <!-- <mat-error *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</mat-error> -->
+                  <!-- <mat-error
+                      *ngIf="loginForm.get('email')?.errors?.['email'] || loginForm.get('email')?.errors?.['pattern']">
+                      Please provide valid email id</mat-error> -->
+              </mat-form-field>
+          </div>
+          <div>
+              <div class="d-flex align-items-start justify-content-between">
+                  <!-- <mat-label class="fs-14 fw-400 color-grey-abbey d-block">Password*</mat-label> -->
+                  <!-- <a routerLink="/auth/reset-password" class="fs-14 fw-500 color-neon-blue">Forgot Password ?</a> -->
+              </div>
+
+              <mat-form-field class="w-100" appearance="outline">
+                  <input type="text" matInput placeholder="Enter password"
+                      >
+                  <button type="button" mat-icon-button matSuffix 
+                      [attr.aria-label]="'Hide password'" >
+                      <!-- <mat-icon>{{togglePassword ? 'visibility_off' : 'visibility'}}</mat-icon> -->
+                  </button>
+
+                  <mat-error >Password is required</mat-error>
+                  <!-- <mat-error *ngIf="loginForm.get('password')?.errors?.['minlength']">minimum 4 charcter</mat-error>
+                      <mat-error *ngIf="loginForm.get('password')?.errors?.['maxlength']">miximum 16 charcter</mat-error>
+               -->
+              </mat-form-field>
+
+          </div>
+          <div class="mt-3">
+              <button type="submit" class="mat-button w-100 mat-button-primary">Log In </button>
+          </div>
+      </div>
+      <div fxLayout="column" class="mt-2 mb-3">
+          <p class="fs-12 fw-400 color-grey-abbey mb-1">
+              By clicking on "Log in" I agree to SuperHire's
+              <a href="https://supersourcing.com/privacy-policy.html" target="_blank"
+                  class="fs-12 fw-500 color-neon-blue">
+                  Terms of Service
+              </a>
+              and
+              <a href="https://supersourcing.com/privacy-policy.html" target="_blank"
+                  class="fs-12 fw-500 color-neon-blue">
+                  Privacy Policy
+              </a>
+          </p>
+      </div>
+      <div fxLayout="column" class="mt-4">
+          <p class="fs-14 fw-400 color-grey-abbey mb-2">Don’t have an account yet?
+              <a class="color-neon-blue fw-500" routerLink="/auth/signup">
+                  Signup
+              </a>
+          </p>
+      </div>
+  </form>
+</div>

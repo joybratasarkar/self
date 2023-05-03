@@ -1,0 +1,184 @@
+.login-signup {
+    .auth-left-sec {
+      height: 100vh;
+      background-image: url(../../images/left-side.png);
+      background-size: cover;
+      padding: 50px 0px 0px 130px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      max-width: calc(100% - 635px);
+      &.user-details{
+        max-width: calc(100% - 900px);
+        padding: 50px 40px 0px 80px;
+      }
+    }
+    .right-bar {
+      margin-left: auto;
+      min-height: 100vh;
+      width: 100%;
+      max-width: 635px;
+      padding: 30px 95px;
+      &.user-details-right{
+        max-width: 900px;
+      }
+      .mat-form-field {
+          width: 100%;
+          margin-top: 8px;
+      }
+      .mat-signup{
+          min-width: 100%;
+          min-height: 50px;
+      }
+      &.login-card {
+        position: relative;
+          font-size: 14px;
+          background-color: $white !important;
+          font-family: $TTNormsPro;
+          border-radius: 0px !important;
+          .google-button {
+            width: 100%;
+            font-size: 16px;
+            border-radius: 70px;
+            background-color: $white;
+            border: 1px solid $link-water;
+            padding: 6px 8px;
+            font-weight: 600;
+            font-family: $TTNormsPro;
+            span {
+              vertical-align: sub;
+              padding: 0 10px;
+            }
+          }
+          .divider {
+            border-bottom: 1px solid #e0e3ea;
+            width: 100%;
+            vertical-align: text-top;
+            height: 25px;
+          }
+          .login-alt {
+            width: max-content;
+            max-width: max-content;
+            min-width: max-content;
+            padding: 15px 18px;
+          }
+          .desc {
+              font-style: normal;
+              font-weight: $fw-400;
+              font-size: 14px;
+              line-height: 21px;
+          }
+      }
+    }
+    @media (max-width:1200px) {
+      .auth-left-sec{
+        max-width: calc(100% - 500px);
+        padding: 25px 0px 0px 40px;
+        &.user-details{
+          max-width: calc(100% - 600px);
+          padding: 25px 25px 0px 40px;
+
+        }
+      }
+      .right-bar {
+        max-width: 500px;
+        padding: 30px 50px;
+        &.user-details-right{
+          max-width: 600px;
+        }
+      }
+    }
+    @media (max-width:991px) {
+      .auth-left-sec{
+        display: none;
+      }
+      .right-bar {
+        margin: 10px auto;
+      }
+    }
+    @media (max-width:575px) {
+      .right-bar {
+        max-width: 100%;
+        margin: 0px auto;
+        padding: 20px;
+      }
+      .w-75{
+        width: 100% !important;
+      }
+    }
+  }
+  
+  // mat form input css
+  .mat-form-field{
+    .mat-form-field-wrapper {
+      margin: 0px !important;
+      padding: 0px !important;
+    }
+    .mat-form-field-outline{
+      display: none !important;
+    }
+    .mat-form-field-infix {
+      display: block !important;
+      width: 100% !important;
+      flex: none !important;
+      overflow: hidden !important;
+      padding: 0px !important;
+      border: none !important;
+    }
+    input {
+      padding: 15px !important;
+      border-radius: 6px !important;
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 15px;
+      font-weight: 500 !important;
+      transition-duration: 400ms;
+      margin: 0px;
+    }
+  }
+  
+  .mat-mdc-form-field-infix {
+    min-height: 48px !important;
+  }
+
+  .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control {
+    height: auto;
+    padding-top: 3px;
+  }
+
+  .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    font-family: 'TT Norms Pro';
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+  mat-label {
+    font-family: 'TT Norms Pro';
+    padding-bottom: 9px !important;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #4F5052;
+  }
+  .mdc-text-field {
+    border-radius: 6px !important;
+  }
+  // .mat-mdc-form-field-icon-suffix {
+  //   position: absolute;
+  //   top: 0px !important;
+  //   right: 0;
+  // }
+  .mat-mdc-form-field-infix{
+    width: unset !important;
+  }
+
+.first-screen {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}

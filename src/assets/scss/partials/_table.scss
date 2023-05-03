@@ -1,0 +1,422 @@
+.candidate, .applied, .candidateSearch, .interviewIn,
+.users{
+    .mat-elevation-z8, .mat-mdc-elevation-specific.mat-elevation-z8 {
+        box-shadow: none !important;
+    }
+}
+.mdc-data-table__cell, .mdc-data-table__header-cell {
+    padding: 0 !important;
+}
+.mat-mdc-card {
+    box-shadow: none !important;
+    --mdc-elevated-card-container-color: transparent !important;
+}
+
+.mdc-data-table__cell {
+    font-family: 'TT Norms Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: -0.2px;
+    color: #4F5052;
+}
+
+.mdc-text-field--disabled {
+    border: solid 1px rgba(0, 0, 0, 0.42) !important;
+}
+
+.searchbox{
+    min-width: 40% !important;
+    max-width: 40% !important;
+    .mdc-button {
+        position: relative;
+        min-width: 45px !important;
+    }
+    .mat-mdc-form-field {
+        display: inline !important;
+    }
+    .mat-mdc-text-field-wrapper {
+        background: #F3F2FE !important;
+    }
+    &.bg{
+        .mat-mdc-text-field-wrapper {
+            background: $white !important;
+        }
+    }
+    &.w-100{
+        min-width: 100% !important;
+        max-width: 100% !important;
+    }
+    .mat-mdc-form-field-subscript-wrapper{
+        display: none !important;
+    }
+}
+.candidate{
+    &-table{
+        tr{
+            th{
+                &.mat-column-candidateName{
+                    width: 20%;
+                }
+                &.mat-column-action{
+                    width: 15%;
+                    text-align: center;
+                }
+                &.mat-column-resume{
+                    a{
+                        color: $neon-blue !important;
+                    }
+                }
+            }
+            td{
+                &.mat-column-candidateName{
+                    width: 20%;
+                }
+                &.mat-column-action{
+                    width: 15%;
+                    text-align: center;
+                }
+                &.mat-column-resume{
+                    a{
+                        color: $neon-blue !important;
+                    }
+                }
+            }
+        }
+    }
+    &-details{
+        tr{
+            th{
+                &.mat-column-jobNameID{
+                    width: 20%;
+                }
+            }
+            td{
+                &.mat-column-jobNameID{
+                    width: 20%;
+                }
+            }
+        }
+    }
+}
+
+.users{
+    &-table{
+        tr{
+            td{
+                &.mat-column-action{
+                    width: 20%;
+                    text-align: center !important;
+                }
+
+                &.mat-column-userType{
+                    width: 18%;
+                }
+                &.mat-column-status{
+                    width: 8%;
+                    text-align: center !important;
+                }
+                &.mat-column-emailID{
+                    width: 18%;
+                    padding-right: 15px !important;
+                }
+            }
+            th{
+                &.mat-column-action{
+                    width: 20%;
+                    text-align: center !important;
+                }
+                &.mat-column-userType{
+                    width: 18%;
+                }
+                &.mat-column-status{
+                    width: 8%;
+                    text-align: center !important;
+                }
+                &.mat-column-emailID{
+                    width: 18%;
+                    padding-right: 15px !important;
+                }
+            }
+        }
+    }
+}
+
+.interviewIn{
+    &-table{
+        tr{
+            th{
+                &.mat-column-candidateName{
+                    width: 16%;
+                }
+                &.mat-column-job{
+                    width: 8%;
+                }
+                &.mat-column-topSkills{
+                    width: 18%;
+                }
+                &.mat-column-round{
+                    width: 6%;
+                    text-align: center;
+                }
+                &.mat-column-resume{
+                    width: 8%;
+                    text-align: center;
+                    a{
+                        color: $neon-blue !important;
+                    }
+                }
+                &.mat-column-scheduledOn{
+                    width: 10%;
+                    text-align: center;
+                }
+                &.mat-column-InterviewedOn,
+                &.mat-column-interviewOn{
+                    width: 16%;
+                }
+                &.mat-column-action{
+                    width: 10%;
+                    text-align: center;
+                }
+                &.mat-column-InterviewFeedback{
+                    width: 20%;
+                }
+            }
+
+            td{
+                &.mat-column-candidateName{
+                    width: 16%;
+                }
+                &.mat-column-job{
+                    width: 8%;
+                }
+                &.mat-column-topSkills{
+                    width: 18%;
+                }
+                &.mat-column-round{
+                    width: 6%;
+                    text-align: center;
+                }
+                &.mat-column-resume{
+                    width: 8%;
+                    text-align: center;
+                    a{
+                        color: $neon-blue !important;
+                    }
+                }
+                &.mat-column-scheduledOn{
+                    width: 10%;
+                    text-align: center;
+                }
+                &.mat-column-InterviewedOn,
+                &.mat-column-interviewOn{
+                    width: 16%;
+                }
+                &.mat-column-action{
+                    text-align: center;
+                    width: 10%;
+                }
+                &.mat-column-InterviewFeedback{
+                    width: 20%;
+                }
+            }
+        }
+    }
+}
+
+.applied{
+    &-table{
+        tr{
+            th{
+                &.mat-column-candidateName{
+                    width: 20%;
+                }
+                &.mat-column-appliedOn,
+                &.mat-column-experience{
+                    text-align: center;
+                    padding: 0 10px;
+                }
+                &.mat-column-topSkills{
+                    width: 21%;
+                }
+                &.mat-column-resume{
+                        padding-left: 10px;
+                    a{
+                        color: $neon-blue !important;
+                    }
+                }
+                &.mat-column-matching,
+                &.mat-column-source{
+                    padding-left: 10px;
+                }
+                &.mat-column-action{
+                    width: 12%;
+                    text-align: center;
+                }
+            }
+            td{
+                &.mat-column-candidateName{
+                    width: 20%;
+                }
+                &.mat-column-appliedOn,
+                &.mat-column-experience{
+                    text-align: center;
+                    padding: 0 10px;
+                }
+                &.mat-column-topSkills{
+                    width: 21%;
+                }
+                &.mat-column-resume{
+                    padding-left: 10px;
+                    a {
+                        color: $neon-blue !important;
+                    }
+                }
+                &.mat-column-matching,
+                &.mat-column-source{
+                    padding-left: 10px;
+                }
+                &.mat-column-action{
+                    width: 12%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+.image-circle{
+    img{
+        border-radius: 100% !important;
+    }
+}
+.candidateSearch{
+    border-radius: 8px !important;
+    background: #ffffff !important;
+    padding: 10px;
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+    &.cScroll{
+        overflow-y: scroll;
+        height: 340px;
+        margin-bottom: 15px;
+    }
+
+    &-table{
+        tr{
+            th{
+                &.mat-column-checked{
+                    width: 4%;
+                }
+                &.mat-column-candidateName{
+                    width: 15%;
+                }
+                &.mat-column-topSkills{
+                    width: 23%;
+                }
+                &.mat-column-experience {
+                    width: 10%;
+                }
+                &.mat-column-matching {
+                    width: 15%;
+                }
+            }
+            td{
+                &.mat-column-checked{
+                    width: 4%;
+                }
+                &.mat-column-candidateName{
+                    width: 15%;
+                }
+                &.mat-column-topSkills{
+                    width: 23%;
+                }
+
+                &.mat-column-experience {
+                    width: 10%;
+                }
+                &.mat-column-matching {
+                    width: 15%;
+                }
+            }
+        }
+    }
+}
+.empty-table {
+    text-align: center;
+    min-height: calc(67vh - 100px);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .content {
+      padding: 50px 0;
+      max-width: 400px;
+      margin: 0 auto;
+      img {
+        margin-bottom: 12px;
+      }
+      h6 {
+        line-height: 27px;
+        margin-bottom: 5px;
+        margin-top: 0;
+      }
+    }
+}
+
+.availability-grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    @media (max-width:1024px) {
+        grid-template-columns: auto auto auto;
+    }
+    @media (max-width:620px) {
+        grid-template-columns: auto auto;
+    }
+    gap: 10px;
+    button{
+        &:hover{
+            outline: 1px solid #5A43FF !important;
+            background: #F0EEFF !important;
+            color: #5A43FF;
+        }
+        &.active{
+            outline: 1px solid #5A43FF !important;
+            background: #F0EEFF !important;
+        }
+        &:disabled,
+        &[disabled]{        
+            outline: 1px solid #F0EEFF !important;
+            background: #F0EEFF !important;
+            color: #767676 !important;
+            cursor: not-allowed;
+        }
+    }
+}
+
+// slills tooltip
+ul.skill-menu {
+	margin: 0 0 0 -40px;
+	display: flex;
+	list-style: none;
+}
+li.skilldown:hover {
+    cursor: pointer;
+	.skilldown-more {
+        visibility: visible;
+        opacity: 1;
+        display: block;
+	}
+}
+ul li ul.skilldown-more {
+	opacity: 0;
+	list-style: none;
+	margin: 8px 0 0 0;
+	padding: 5px;
+    visibility: hidden;
+	position: absolute;
+    background: $white;
+    transition: all 0.5s ease;
+}
+ul li ul.skilldown-more li {
+	clear: both;
+}
