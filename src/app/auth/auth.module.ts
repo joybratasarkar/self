@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
@@ -9,6 +9,9 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import {MatButtonModule} from '@angular/material/button';
 import { MaterialModule } from '../core/material/material.module';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { CoreModule } from '../core/core.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,8 +23,13 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     CommonModule,
     AuthRoutingModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     ButtonsModule.forRoot(),
     CarouselModule.forRoot(),
-  ]
+  ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+
 })
 export class AuthModule { }

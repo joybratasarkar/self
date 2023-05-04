@@ -1,7 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-/* Importing Bootstrap SCSS file. */
 @import "./node_modules/bootstrap/scss/bootstrap";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'TT Norms Pro', 'Inter', sans-serif;
+  background-color: #FFFFFF;
+}
+
+// regular style toast
+@import 'ngx-toastr/toastr';
+
+// Mixins File
+
+@import './assets/scss/mixins/blockSize';
+
+// Modules Files
+@import './assets/scss/modules/fonts';
+
+// quile Editor
+// @import '~quill/dist/quill.bubble.css';
+// @import '~quill/dist/quill.snow.css';
+
+// Partials File
+
+@import './assets/scss/partials/vars',
+'./assets/scss/partials/auth',
+'./assets/scss/partials/buttons',
+'./assets/scss/partials/header',
+'./assets/scss/partials/sidebar',
+'./assets/scss/partials/dialogs',
+'./assets/scss/partials/global',
+'./assets/scss/partials/tabs',
+'./assets/scss/partials/table',
+'./assets/scss/partials/form',
+'./assets/scss/partials/utility';
+
+// @import "node_modules/angular-notifier/styles"
+
+
+
+// //in component.css
+// ::ng-deep .red-snackbar{
+//   background: rgb(165, 36, 36);
+//   color:white
+// }
+// //in component.css
+// ::ng-deep .red-snackbar{
+//   background: green;
+//   color:white
+// }
