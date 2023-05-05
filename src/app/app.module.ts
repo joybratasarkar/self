@@ -9,11 +9,10 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { MaterialModule } from './core/material/material.module'
 import { ToastrModule } from 'ngx-toastr';
+import { SocialLoginModule, SocialAuthServiceConfig, GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
 import {
   GoogleLoginProvider,
-  FacebookLoginProvider,
-  SocialAuthServiceConfig,
-  SocialLoginModule
+  FacebookLoginProvider
 } from '@abacritt/angularx-social-login';
 @NgModule({
   declarations: [
@@ -43,13 +42,14 @@ import {
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '859914641603-pkbfetv2htunc56e7cobnenruk0e999n.apps.googleusercontent.com'
+              '132632208183-q3kht9css6daq89st3o5di70176796kt.apps.googleusercontent.com',
+              {
+                
+                oneTapEnabled: false, // <===== default is true
+              }
             )
+
           },
-          // {
-          //   id: FacebookLoginProvider.PROVIDER_ID,
-          //   provider: new FacebookLoginProvider('')
-          // }
         ],
         onError: (err) => {
           console.error(err);

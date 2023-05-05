@@ -1,4 +1,5 @@
 
+import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
@@ -10,7 +11,8 @@ import { Subject, takeUntil } from 'rxjs';
 export class AppComponent {
   destroyed = new Subject<void>();
   currentScreenSize!: string;
-
+  user!: SocialUser;
+  loggedIn!: boolean;
   // Create a map to display breakpoint names for demonstration purposes.
   displayNameMap = new Map([
     [Breakpoints.XSmall, 'XSmall'],
@@ -20,7 +22,9 @@ export class AppComponent {
     [Breakpoints.XLarge, 'XLarge'],
   ]);
 
-  constructor(breakpointObserver: BreakpointObserver) {
+  constructor(breakpointObserver: BreakpointObserver,
+    private authService: SocialAuthService
+    ) {
     breakpointObserver
       .observe([
         Breakpoints.XSmall,
@@ -37,6 +41,22 @@ export class AppComponent {
           }
         }
       });
+
+      this.authService.authState.subscribe(
+        {
+          next: (response: any) => {
+            debugger;
+            this.user = response;
+            this.loggedIn = (response != null);
+  
+          },
+          error: (error: any) => {
+            debugger;
+            console.log('error', error);
+  
+          }
+        }
+      );
   }
 
   ngOnDestroy() {

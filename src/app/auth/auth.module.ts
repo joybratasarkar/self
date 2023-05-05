@@ -12,6 +12,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CoreModule } from '../core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     ButtonsModule.forRoot(),
     CarouselModule.forRoot(),
+    GoogleSigninButtonModule,
+
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 

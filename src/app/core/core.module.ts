@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { MaterialModule } from "./material/material.module";
 import { HttpClientModule } from "@angular/common/http";
+import { GoogleSigninButtonModule } from "@abacritt/angularx-social-login";
 
 
 
@@ -15,10 +16,12 @@ import { HttpClientModule } from "@angular/common/http";
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,    
+    HttpClientModule,   
+    GoogleSigninButtonModule, 
   ],
   exports: [
-    
+    GoogleSigninButtonModule,
+
   ]
 })
 export class CoreModule { }

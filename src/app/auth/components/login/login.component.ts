@@ -1,4 +1,4 @@
-import { SocialAuthService, SocialUser, VKLoginProvider } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider, SocialAuthService, SocialUser, VKLoginProvider } from '@abacritt/angularx-social-login';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -21,9 +21,16 @@ export class LoginComponent {
   constructor(
     private auth: AuthService,
     private toaster: ToasterService,
-    private authService: SocialAuthService
+    private googleAuthService: SocialAuthService
   ) {
-
+    this.googleAuthService.authState.subscribe((user) => {
+      debugger;
+      var socialUser = user;
+      var isLoggedIn = (user != null);
+      console.log('socialUser',socialUser);
+      
+      debugger;
+    });
   }
 
 
@@ -42,20 +49,20 @@ export class LoginComponent {
     });
 
 
-    this.authService.authState.subscribe(
-      {
-        next: (response: any) => {
+    // this.googleAuthService.authState.subscribe(
+    //   {
+    //     next: (response: any) => {
 
-          this.user = response;
-          this.loggedIn = (response != null);
+    //       this.user = response;
+    //       this.loggedIn = (response != null);
 
-        },
-        error: (error: any) => {
-          console.log('error', error);
+    //     },
+    //     error: (error: any) => {
+    //       console.log('error', error);
 
-        }
-      }
-    );
+    //     }
+    //   }
+    // );
 
 
 
@@ -79,16 +86,15 @@ export class LoginComponent {
       });
   }
   signInWithVK(): void {
-    // default usage without defining access level
-    this.authService.signIn(VKLoginProvider.PROVIDER_ID);
-
-    // define access level
-    // https://dev.vk.com/reference/access-rights
-    this.authService.signIn(VKLoginProvider.PROVIDER_ID, ['offline', 'email']);
+    debugger;
+    this.googleAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    debugger;
   }
 
   signOut(): void {
-    this.authService.signOut();
+    this.googleAuthService.signOut();
+
+    // this.googleAuthService.signOut();
   }
   ngOnDestroy(): void {
     this._unsubscribe$.next(true);
