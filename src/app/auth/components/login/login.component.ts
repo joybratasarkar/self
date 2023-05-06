@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { HttpResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
@@ -23,7 +24,8 @@ export class LoginComponent {
     private auth: AuthService,
     private toaster: ToasterService,
     private googleAuthService: SocialAuthService,
-    private _localStorage:LocalStorageService
+    private _localStorage:LocalStorageService,
+    private _router:Router
   ) {
   }
 
@@ -78,6 +80,7 @@ export class LoginComponent {
           console.log(`Authorization header value: ${authToken}`);
           
           this._localStorage.setAuthToken(response.body.jwt || '');
+          this._router.navigate(['/dashboard']);
 
           // this._localStorage.setAuthToken(response.headers.get('x-amzn-Remapped-authorization') || response.headers.get('Authorization') || '');
           
