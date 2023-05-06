@@ -12,7 +12,7 @@
           </div>
       </div>
     
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit($event)">
         <div fxLayout="column">
             <div class="mb-2">
                 <mat-label class="fs-14 fw-400 color-grey-abbey d-block">Email ID*</mat-label>
@@ -46,7 +46,7 @@
 
             </div>
             <div class="mt-3">
-                <button type="submit" class="mat-button w-100 mat-button-primary">Log In </button>
+                <button type="submit" name="login"  class="mat-button w-100 mat-button-primary">Log In </button>
             </div>
         </div>
         <div fxLayout="column" class="mt-2 mb-3">

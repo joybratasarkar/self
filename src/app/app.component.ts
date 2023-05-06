@@ -42,21 +42,6 @@ export class AppComponent {
         }
       });
 
-      this.authService.authState.subscribe(
-        {
-          next: (response: any) => {
-            debugger;
-            this.user = response;
-            this.loggedIn = (response != null);
-  
-          },
-          error: (error: any) => {
-            debugger;
-            console.log('error', error);
-  
-          }
-        }
-      );
   }
 
   ngOnDestroy() {

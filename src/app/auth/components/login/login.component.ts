@@ -1,9 +1,11 @@
 import { GoogleLoginProvider, SocialAuthService, SocialUser, VKLoginProvider } from '@abacritt/angularx-social-login';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { HttpResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Subject, takeUntil } from 'rxjs';
+import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ToasterService } from 'src/app/core/services/toaster.service';
 
 @Component({
@@ -15,22 +17,14 @@ export class LoginComponent {
   private _unsubscribe$ = new Subject<boolean>;
   loginForm!: FormGroup;
   togglePassword: boolean = true;
-
   user!: SocialUser;
   loggedIn!: boolean;
   constructor(
     private auth: AuthService,
     private toaster: ToasterService,
-    private googleAuthService: SocialAuthService
+    private googleAuthService: SocialAuthService,
+    private _localStorage:LocalStorageService
   ) {
-    this.googleAuthService.authState.subscribe((user) => {
-      debugger;
-      var socialUser = user;
-      var isLoggedIn = (user != null);
-      console.log('socialUser',socialUser);
-      
-      debugger;
-    });
   }
 
 
@@ -48,47 +42,54 @@ export class LoginComponent {
       ]),
     });
 
+    this.googleAuthService.authState.subscribe(
+      {
+        next: (response: any) => {
+          
+          this.user = response;
+          this.loggedIn = (response != null);
 
-    // this.googleAuthService.authState.subscribe(
-    //   {
-    //     next: (response: any) => {
+        },
+        error: (error: any) => {
+          
+          console.log('error', error);
 
-    //       this.user = response;
-    //       this.loggedIn = (response != null);
-
-    //     },
-    //     error: (error: any) => {
-    //       console.log('error', error);
-
-    //     }
-    //   }
-    // );
-
-
-
+        }
+      }
+    );
   }
-  onSubmit() {
+  onSubmit(event: any) {
+    const submitButtonName = event.submitter.getAttribute('name');
+    
     if (!this.loginForm.valid) {
       return;
     }
-    debugger;
-    this.auth
-      .login(this.loginForm.value)
+    if(submitButtonName==='login')
+    {
+
+      this.auth
+      .login(this.loginForm.value,)
       .pipe(takeUntil(this._unsubscribe$))
       .subscribe({
-        next: (response: any) => {
+        next: (response:any) => {
+          this.auth.isLoggedIn.next(true);
+          
+          this._localStorage.setAuthToken(response.headers.get('x-amzn-Remapped-authorization') || response.headers.get('Authorization') || '');
+          
           this.toaster.toastSuccess('loginSuccess')
         },
         error: (error: any) => {
-          this.toaster.toastError(error)
-
+          
+          this.toaster.toastError(error.message)
+          
         }
       });
+    }
   }
   signInWithVK(): void {
-    debugger;
+    
     this.googleAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
-    debugger;
+    
   }
 
   signOut(): void {

@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,10 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from '@abacritt/angularx-social-login';
+import { BroadcastInterceptor } from './core/interceptors/broadcast.interceptor';
+import { GlobalErrorHandler } from './global-error-hander';
+import { TokenInterceptor } from './core/interceptors/token.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent
@@ -34,6 +38,9 @@ import {
     }),
   ],
   providers: [
+    // { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: BroadcastInterceptor, multi: true },
+    // { provide: ErrorHandler, useClass: GlobalErrorHandler },
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
