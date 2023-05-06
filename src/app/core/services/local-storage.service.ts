@@ -13,7 +13,9 @@ export class LocalStorageService {
    */
    setAuthToken(token: string): void {
     
+    
     localStorage.setItem('dev_token', token);
+    
   }
 
 

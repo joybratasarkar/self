@@ -6,13 +6,15 @@ import { MaterialModule } from "./material/material.module";
 import { HttpClientModule } from "@angular/common/http";
 import { GoogleSigninButtonModule } from "@abacritt/angularx-social-login";
 import { ErrorPopupComponent } from './components/error-popup/error-popup.component';
+import { LayoutComponent } from './projectLayout/layout/layout.component';
 
 
 
 @NgModule({
   declarations: [
   
-    ErrorPopupComponent
+    ErrorPopupComponent,
+       LayoutComponent
   ],
   imports: [
     CommonModule,

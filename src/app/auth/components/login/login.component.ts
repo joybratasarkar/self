@@ -71,10 +71,15 @@ export class LoginComponent {
       .login(this.loginForm.value,)
       .pipe(takeUntil(this._unsubscribe$))
       .subscribe({
-        next: (response:any) => {
+        next: (response:HttpResponse<any>) => {
           this.auth.isLoggedIn.next(true);
+          console.log('response.headers',response.headers);
+          const authToken = response.headers.get('Authorization');
+          console.log(`Authorization header value: ${authToken}`);
           
-          this._localStorage.setAuthToken(response.headers.get('x-amzn-Remapped-authorization') || response.headers.get('Authorization') || '');
+          this._localStorage.setAuthToken(response.body.jwt || '');
+
+          // this._localStorage.setAuthToken(response.headers.get('x-amzn-Remapped-authorization') || response.headers.get('Authorization') || '');
           
           this.toaster.toastSuccess('loginSuccess')
         },
@@ -94,12 +99,11 @@ export class LoginComponent {
 
   signOut(): void {
     this.googleAuthService.signOut();
-
-    // this.googleAuthService.signOut();
   }
   ngOnDestroy(): void {
     this._unsubscribe$.next(true);
     this._unsubscribe$.complete();
+    this.auth.removeLocalStorageData()
   }
 
 }

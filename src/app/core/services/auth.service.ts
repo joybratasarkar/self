@@ -30,7 +30,7 @@ export class AuthService {
   checkLogin():boolean
   {
     if (localStorage.getItem('dev_token') ) {
-      this._router.navigate(['/home']);
+      // this._router.navigate(['/home']);
       return false;
     } else {
       return true;

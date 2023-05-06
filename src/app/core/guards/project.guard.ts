@@ -14,7 +14,7 @@ class PermissionsService {
       //your logic goes here
       // && localStorage.getItem('userData')
       if (localStorage.getItem('dev_token') ) {
-        this._router.navigate(['/home']);
+        // this._router.navigate(['/home']);
         return false;
       } else {
         return true;
