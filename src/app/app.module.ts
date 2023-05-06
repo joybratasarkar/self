@@ -40,7 +40,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: BroadcastInterceptor, multi: true },
-    { provide: ErrorHandler, useClass: GlobalErrorHandler },
+    // { provide: ErrorHandler, useClass: GlobalErrorHandler },
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
