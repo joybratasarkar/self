@@ -106,7 +106,7 @@ export class LoginComponent {
   ngOnDestroy(): void {
     this._unsubscribe$.next(true);
     this._unsubscribe$.complete();
-    this.auth.removeLocalStorageData()
+    // this.auth.removeLocalStorageData()
   }
 
 }

@@ -26,57 +26,119 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     
-    const token = localStorage.getItem('dev_token');
-    
-    if (!token) {
+  //   const token = localStorage.getItem('dev_token');
+  //   
+  //   if (!token) {
+  //     return next.handle(request);
+  //   }
+  //   
+  //   if (token) {
+  //     
+  //     request = request.clone({
+  //       setHeaders: {
+  //         'Access-Control-Allow-Origin': '*',
+  //         Authorization: token
+  //       }
+  //     });
+  //     // SHOW PROGRESS BAR WHEN REQUEST HAS REPORT PROGRESS KEY SET TO TRUE
+  //     if (request.reportProgress) {
+  //       
+  //       this._progressBar.showProgressBar.next(true);
+  //     }
+  //   } else {
+  //     
+  //     request = request.clone({
+  //       setHeaders: {
+  //         'Access-Control-Allow-Origin': '*'
+  //       }
+  //     });
+  //   }
+  //   //  else {
+  //   //   if (request.reportProgress) {
+  //   //     this._progressBar.showProgressBar.next(true);
+  //   //   }
+  //   return next.handle(request);
+
+  //   return next.handle(request).pipe(
+  //     map((event: HttpEvent<any>) => {
+  //       
+  //       if (request.method != 'GET') {
+  //         
+  //         // this._broadcastService.postMessage();
+  //       }
+  //       return event;
+  //     }),
+  //     catchError((httpErrorResponse: HttpErrorResponse) => {
+  //       
+  //       if (request.context.get(useErrorHandler)) {
+  //         this._errorHandler.routeAccordingToError(httpErrorResponse);
+  //       }
+  //       throw (httpErrorResponse);
+  //     }),
+  //     finalize(() => {
+  //       
+  //       if (request.reportProgress) {
+  //         // HIDE PROGRESS BAR IN ANY CASE SUCCESS/ERROR
+  //         this._progressBar.showProgressBar.next(false);
+  //       }
+  //     })
+  //   );
+  // }
+  const token = localStorage.getItem('dev_token');
+     if (!token) {
       return next.handle(request);
     }
-    if (token) {
-      request = request.clone({
-        setHeaders: {
-          'Access-Control-Allow-Origin': '*',
-          Authorization: token
-        }
-      });
-      // SHOW PROGRESS BAR WHEN REQUEST HAS REPORT PROGRESS KEY SET TO TRUE
-      if (request.reportProgress) {
-        this._progressBar.showProgressBar.next(true);
+  if (token) {
+    
+    request = request.clone({
+      setHeaders: {
+        'Content-Type': 'application/json', // set the content type based on the request body
+        'Authorization': token
       }
-    } else {
-      
-      request = request.clone({
-        setHeaders: {
-          'Access-Control-Allow-Origin': '*'
-        }
-      });
+    });
+    if (request.reportProgress) {
+      this._progressBar.showProgressBar.next(true);
     }
-    //  else {
-    //   if (request.reportProgress) {
-    //     this._progressBar.showProgressBar.next(true);
-    //   }
-
-    return next.handle(request).pipe(
-      map((event: HttpEvent<any>) => {
-        
-        if (request.method != 'GET') {
-          this._broadcastService.postMessage();
-        }
-        return event;
-      }),
-      catchError((httpErrorResponse: HttpErrorResponse) => {
-        if (request.context.get(useErrorHandler)) {
-          this._errorHandler.routeAccordingToError(httpErrorResponse);
-        }
-        throw (httpErrorResponse);
-      }),
-      finalize(() => {
-        
-        if (request.reportProgress) {
-          // HIDE PROGRESS BAR IN ANY CASE SUCCESS/ERROR
-          this._progressBar.showProgressBar.next(false);
-        }
-      })
-    );
+  } else {
+    
+    request = request.clone({
+      setHeaders: {
+        'Content-Type': 'application/json',
+      }
+    });
   }
+
+  return next.handle(request).pipe(
+    map((event: HttpEvent<any>) => {
+      
+      if (request.method != 'GET') {
+        this._broadcastService.postMessage();
+      }
+      return event;
+    }),
+    catchError((httpErrorResponse: HttpErrorResponse) => {
+      
+      if (httpErrorResponse.status === 401) {
+        
+        // handle unauthorized error
+      } else if (httpErrorResponse.status === 403) {
+        
+        // handle forbidden error
+      } else {
+        
+        this._errorHandler.routeAccordingToError(httpErrorResponse);
+      }
+      throw (httpErrorResponse);
+    }),
+    finalize(() => {
+      
+      if (request.reportProgress) {
+        
+        this._progressBar.showProgressBar.next(false);
+      }
+    })
+  );
+}
+
 }
 

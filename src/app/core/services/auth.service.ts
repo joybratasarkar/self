@@ -1,7 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, catchError, timeout } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,16 @@ export class AuthService {
     );
   }
 
+   /**
+   * Function to logout user
+   * @param data Payload containing token saved in localstorage of browser
+   * @returns 
+   */
+   logout() {
+    return this._http.delete(`${this.baseUrl}api/Logout/`).pipe(timeout(75000), catchError((error: HttpErrorResponse) => {
+      throw error;
+    }));
+  }
   checkLogin():boolean
   {
     if (localStorage.getItem('dev_token') ) {

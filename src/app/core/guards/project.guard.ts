@@ -13,10 +13,14 @@ class PermissionsService {
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
       //your logic goes here
       // && localStorage.getItem('userData')
+      
       if (localStorage.getItem('dev_token') ) {
-        // this._router.navigate(['/home']);
+        
+        this._router.navigate(['/dashboard']);
+        
         return false;
       } else {
+        
         return true;
       }
   }
@@ -24,4 +28,6 @@ class PermissionsService {
 
 export const ProjectGuard: CanActivateFn = (next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean => {
   return inject(PermissionsService).canActivate(next, state);
+
+  
 }
