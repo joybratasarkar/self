@@ -22,14 +22,14 @@ constructor(
 
 
   logout(): void {
-    
+    debugger;
     this._auth.logout().pipe(takeUntil(this._unsubscribe$)).subscribe({
       next: (res: any) => {
-        
+        debugger;
+        this._auth.removeLocalStorageData();
         this._router.navigate(['/auth/login']);
         
         
-        this._auth.removeLocalStorageData();
         
         setTimeout(() => {
           // this._storeService.resetStoreOnLogout();

@@ -50,6 +50,9 @@ export class LoginComponent {
           
           this.user = response;
           this.loggedIn = (response != null);
+          this._router.navigate(['/dashboard']);
+          this._localStorage.setAuthToken(response.idToken || '');          
+          this.toaster.toastSuccess('loginSuccess')
 
         },
         error: (error: any) => {

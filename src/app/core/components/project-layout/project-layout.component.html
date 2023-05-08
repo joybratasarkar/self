@@ -1,0 +1,57 @@
+<!-- <p>
+  <mat-toolbar>
+    <span>My Application</span>
+  </mat-toolbar>
+</p> -->
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+        <mat-list>
+            <!-- <div mat-subheader>Folders</div> -->
+
+            <mat-list role="list" style="display: flex; flex-direction: column;">
+                <mat-icon matListItemIcon role="listitem" class="ms-2 mb-4">grade</mat-icon>
+                <mat-divider></mat-divider>
+
+                <mat-icon matListItemIcon role="listitem" (click)="openDialog()" class="ms-2 mt-4">add_to_queue</mat-icon>
+                <ul>
+                  <li *ngFor="let icon of icons">{{ icon }}</li>
+                </ul>
+                <!-- <mat-list-item *ngFor="let folder of folders">
+
+                  <mat-icon matListItemIcon>folder</mat-icon>
+                </mat-list-item> -->
+    
+              </mat-list>
+          </mat-list>
+
+
+    </mat-drawer>
+    <mat-drawer-content class="mat-content">
+<div class="top-nav">
+  <h1 class="logo">Joy Brata Sarkar</h1>
+</div>
+          
+          <div class="left-side">
+            <div class="left-side-ul">
+              <ul>
+                <li class="list">Chanel</li>
+                <li class="list">Chanel</li>
+                <li class="list">Chanel</li>
+                <li class="list">Chanel</li>
+                <li class="list">Chanel</li>
+                <li class="list">Chanel</li>
+                <li class="list">Chanel</li>
+                <li class="list">Chanel</li>
+                <li class="list">Chanel</li>
+                <li class="list">Chanel</li>
+                <li class="list">Chanel</li>
+                <li class="list">Chanel</li>
+              </ul>
+            </div>
+          </div>
+          <div class="right-side">
+            <router-outlet></router-outlet>
+          </div>
+          
+    </mat-drawer-content>
+  </mat-drawer-container>

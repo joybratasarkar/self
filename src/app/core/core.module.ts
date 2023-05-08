@@ -6,7 +6,8 @@ import { MaterialModule } from "./material/material.module";
 import { HttpClientModule } from "@angular/common/http";
 import { GoogleSigninButtonModule } from "@abacritt/angularx-social-login";
 import { ErrorPopupComponent } from './components/error-popup/error-popup.component';
-import { LayoutComponent } from './projectLayout/layout/layout.component';
+import { ProjectLayoutComponent } from "./components/project-layout/project-layout.component";
+import { CreateAServerDialogComponent } from './dialog/create-a-server-dialog/create-a-server-dialog.component';
 
 
 
@@ -14,7 +15,8 @@ import { LayoutComponent } from './projectLayout/layout/layout.component';
   declarations: [
   
     ErrorPopupComponent,
-       LayoutComponent
+       ProjectLayoutComponent,
+       CreateAServerDialogComponent
   ],
   imports: [
     CommonModule,
@@ -22,11 +24,13 @@ import { LayoutComponent } from './projectLayout/layout/layout.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,   
-    GoogleSigninButtonModule, 
+    GoogleSigninButtonModule,
+    MaterialModule 
   ],
   exports: [
     GoogleSigninButtonModule,
-    ErrorPopupComponent
+    ErrorPopupComponent,
+    MaterialModule
   ]
 })
 export class CoreModule { }

@@ -13,4 +13,7 @@ export const ALL_ROUTES: Routes = [
     loadChildren: () =>
       import('../../Dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
+
+
+  
 ];

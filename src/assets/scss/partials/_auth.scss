@@ -8,7 +8,7 @@
       left: 0;
       top: 0;
       width: 100%;
-      max-width: calc(100% - 635px);
+      // max-width: calc(100% - 635px);
       &.user-details{
         max-width: calc(100% - 900px);
         padding: 50px 40px 0px 80px;
@@ -180,5 +180,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
+  width: 25%;
+  background: #fff;
+  padding: 20px;
 }

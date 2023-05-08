@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthLayoutComponent } from './auth/layout/auth-layout/auth-layout.component';
 import { ALL_ROUTES } from './core/routes/all-routes';
-import { LayoutComponent } from './core/projectLayout/layout/layout.component';
+import { ProjectLayoutComponent } from './core/components/project-layout/project-layout.component';
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: LayoutComponent,
+    component: ProjectLayoutComponent,
     children: ALL_ROUTES,
     // canActivate: [AuthGuard]
   },

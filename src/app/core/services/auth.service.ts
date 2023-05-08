@@ -27,6 +27,16 @@ export class AuthService {
     );
   }
 
+  Signup(data: any) {
+    
+    return this._http.post(`${this.baseUrl}api/register/`, data,
+      {
+        headers: new HttpHeaders().set('Content-Type', 'application/json'),
+        observe: 'response'
+      }
+    );
+  }
+
    /**
    * Function to logout user
    * @param data Payload containing token saved in localstorage of browser

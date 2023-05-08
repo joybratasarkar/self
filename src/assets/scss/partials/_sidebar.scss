@@ -196,3 +196,40 @@ ul li ul.submenu li {
 .mat-drawer-transition {
     transition-duration: 0.4s;
 }
+mat-drawer-content {
+    &.mat-content{
+        .top-nav{
+            width: 100%;
+            background: #000;
+            padding: 5px 20px;
+            font-style: italic; margin-bottom: 20px;
+            font-size: 30px;
+            font-weight: 700;
+        }
+        .left-side{
+            width: 15%;
+            float: left;
+            &-ul{
+                position: relative;
+                left: -20px;
+                li{
+                    list-style: none;
+                    padding: 6px 10px;
+                    margin-bottom: 5px;
+                    background: #F5F1FF;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    color: #5A43FF;
+                    font-weight: 600;
+                    .list{
+                    }
+                }
+            }
+        }
+        .right-side{
+            width: 85%;
+            float: left;
+        }
+    }
+}

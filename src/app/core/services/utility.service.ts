@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
@@ -50,4 +51,57 @@ export class UtilityService {
       }
     }, delay);
   }
+
+
+    /**
+   * Function to allow only String in input field
+   * @param event Key event
+   * @returns True if String is input
+   */
+    stringOnly(event: any) {
+      let userInput = event.key;
+      return userInput.match(/^[a-zA-Z ]*$/) !== null;
+    }
+  
+    numbersOnly(event: any) {
+      let userInput = event.key;
+      return userInput.match(/^\d+$/) !== null;
+    }
+  /**
+* Function to delete null/empty keys from an object
+* @param data type `Object`
+* @returns `Object`
+*/
+deleteUndefinedKeysInObject(data: any) {
+  Object.keys(data).map(function (key) {
+    if (data[key] == null || data[key] == 'null' || data[key] == undefined) {
+      delete data[key];
+    }
+  });
+  return data;
+}
+  /**
+  * Function to add commas to number value
+  * @param event Input event
+  * @param formControl Form control whose value is to be changed
+  */
+  addCommas(event: any, formControl: AbstractControl): void {
+    let value = event.target.value.toString().replace(/,/g, '');
+    if (!(+value)) {
+      return;
+    }
+    formControl.setValue((+value).toLocaleString('en-IN'));
+  }
+  // (keydown)="_utility.stringOnly($event)"
+  capitilizeFirstLetter(event: any, formControl: AbstractControl): void {
+    var value = event.target.value.toString()?.replace(' ', '  ');
+    value = value.replace(/\b\w/g, (char:any) => char.toUpperCase());
+
+    if (value === '') {
+      return;
+    }
+
+    formControl.setValue(value);
+    
+  }  
 }
