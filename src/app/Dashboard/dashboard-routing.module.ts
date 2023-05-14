@@ -14,6 +14,8 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
   },
+  // { path: 'room/:room_name', component: LayoutComponent },
+
 ];
 
 @NgModule({

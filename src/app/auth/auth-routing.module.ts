@@ -13,13 +13,13 @@ const routes: Routes = [
   {
     path : "login",
     component : LoginComponent,
-    canActivate: [ProjectGuard]
+    // canActivate: [ProjectGuard]
 
   },
   {
     path : "signup",
     component : SignUpComponent,
-    canActivate: [ProjectGuard]
+    // canActivate: [ProjectGuard]
   },
 
 ];

@@ -17,7 +17,7 @@ export class CreateAServerDialogComponent {
   {
     
     // this.icons.add(42);
-    // debugger;
+    // 
     // for (const item of this.icons) {
     //   console.log('this.icons',item);
       
